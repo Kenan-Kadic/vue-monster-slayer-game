@@ -57,6 +57,10 @@
               heals himself for
               <span class="log--heal">{{ logMessage.actionValue }}</span></span
             >
+            <span v-if="logMessage.actionType === 'surrender'">
+              surrenders and gives up 
+              <span class="log--surrender">{{ logMessage.actionValue }}</span></span
+            >
             <span v-else>
               attacks and deals
               <span class="log--damage">{{ logMessage.actionValue }}</span>

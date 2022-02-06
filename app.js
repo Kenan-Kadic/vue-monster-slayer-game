@@ -40,7 +40,6 @@ const app = Vue.createApp({
            // Player lost
            this.winner = 'monster';
             }
-        }
         },
 
         monsterHealth(value) {
@@ -51,6 +50,7 @@ const app = Vue.createApp({
             // Monster lost
             this.winner = 'player';
         }
+    }
     },
 
 
@@ -67,21 +67,21 @@ const app = Vue.createApp({
            this.currentRound++;
            const attackValue = getRandomValue(5, 12);
            this.monsterHealth -= attackValue;
-           this.addLogMessage('player', 'attack', attackValue);
+           this.addLogMessage('player', 'attack', attackValue + " damage.");
            this.attackPlayer();
           },
 
         attackPlayer() {
            const attackValue = getRandomValue(8, 15);
            this.playerHealth -= attackValue;
-           this.addLogMessage('monster', 'attack', attackValue);
+           this.addLogMessage('monster', 'attack', attackValue + " damage.");
         },
 
         specialAttackMonster() {
            this.currentRound++;
            const attackValue = getRandomValue(10, 25);
            this.monsterHealth -= attackValue;
-           this.addLogMessage('player', 'attack', attackValue);
+           this.addLogMessage('player', 'attack', attackValue + " damage.");
            this.attackPlayer();
         },
 
@@ -93,12 +93,14 @@ const app = Vue.createApp({
            } else {
               this.playerHealth += healValue;
            }
-           this.addLogMessage('player', 'heal', healValue);
+           this.addLogMessage('player', 'heal', healValue + " health.");
            this.attackPlayer();
         },
 
         surrender() {
-            this.winner = 'monster';
+            const surrenderValue = this.playerHealth;
+            this.addLogMessage('player', 'surrender', surrenderValue + " health.");
+            this.winner = 'monster';            
         },
 
         // how to add log messages
