@@ -42,7 +42,7 @@
           SPECIAL ATTACK
         </button>
         <button @click="healPlayer">HEAL</button>
-        <button @click="surrender">SURRENDER</button>
+        <button @click="surrenderPlayer">SURRENDER</button>
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
@@ -55,12 +55,7 @@
             >
             <span v-if="logMessage.actionType === 'heal'">
               heals himself for
-              <span class="log--heal">{{ logMessage.actionValue }}</span></span
-            >
-            <span v-if="logMessage.actionType === 'surrender'">
-              surrenders and gives up 
-              <span class="log--surrender">{{ logMessage.actionValue }}</span></span
-            >
+              <span class="log--heal">{{ logMessage.actionValue }}</span></span>
             <span v-else>
               attacks and deals
               <span class="log--damage">{{ logMessage.actionValue }}</span>

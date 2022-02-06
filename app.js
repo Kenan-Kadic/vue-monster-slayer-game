@@ -97,9 +97,7 @@ const app = Vue.createApp({
            this.attackPlayer();
         },
 
-        surrender() {
-            const surrenderValue = this.playerHealth;
-            this.addLogMessage('player', 'surrender', surrenderValue + " health.");
+        surrenderPlayer() {
             this.winner = 'monster';            
         },
 
